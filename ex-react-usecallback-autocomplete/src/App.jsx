@@ -32,8 +32,12 @@ function App() {
 
 
   }
+
+  const debouncedFetchResults = useCallback(
+    debounce(fetchResults, 500)
+    , [])
   useEffect(() => {
-    fetchResults(query)
+    debouncedFetchResults(query)
   }, [query])
   return (
     <>
